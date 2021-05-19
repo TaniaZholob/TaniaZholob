@@ -1,0 +1,276 @@
+html {
+    font-size: 16px;
+}
+
+body {
+    background-color: #e28679;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+/*conteiner*/
+.conteiner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.meContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    padding-top: 0px;
+    width: 100%;
+    position: absolute;
+    height: 80px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+}
+
+.header_logo {
+    font-size: 25px;
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 20px;
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    font-size: 14px;
+    text-transform: uppercase;
+
+}
+
+.nav_link {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 15px;
+    transition: color .2s linear;
+    position: relative;
+}
+
+.nav_link:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fce38a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .2s linear;
+}
+
+.nav_link:hover {
+    color: #fce38a;
+}
+
+.nav_link:hover:after {
+    opacity: 1;
+}
+
+.right {
+    grid-column-gap: 30px;
+    display: flex;
+}
+
+.guest_view {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+.knopka {
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    display: inline-block;
+    background: #7f2524; /* фон кнопки */
+    padding: .7em 1.5em; /* отступ от текста */
+    /*border: 1px;*/
+    border-color: #7f2524;
+    border-style: solid;
+    cursor: pointer; /*курсор сделать ручкой*/
+}
+
+/**Register**/
+.h1R {
+    color: #fdbc5e;
+    cursor: help;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #e2a2b2;
+}
+
+.conteiner {
+
+    display: inline-block;
+
+    background: rgba(127, 37, 36, 0.5);
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    margin: -125px 0 0 -125px;
+
+}
+
+
+input {
+    margin-top: 10px;
+    height: 28px;
+    border-radius: 5px/5px;
+    border: none;
+    outline: none;
+}
+
+input:focus {
+    border: 2px solid #e28679;
+}
+
+.myButton {
+    cursor: pointer;
+    padding: 8px 20px;
+    height: 30px;
+    color: #7f2524;
+    background-color: #fdbc5e;
+
+
+}
+
+.myButton:hover {
+    opacity: .80;
+    transform: scale(1.1);
+}
+
+/*intro*/
+.intro {
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro_inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.intro_title {
+    font-size: 90px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+
+}
+
+.intro_title:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+    margin: 60px auto 60px;
+}
+
+/**slider*/
+.intro_slider {
+
+    text-transform: uppercase;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+}
+
+
+.slider_item {
+    width: 35%;
+    font-size: 20px;
+    margin: 100px 0;
+    padding: 18px 0;
+    border-top: 3px solid #fff;
+    opacity: 1;
+    position: relative;
+
+}
+
+
+.slider_inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+/*blocks of information for guest*/
+.blockInformation {
+    padding: 30px;
+    width: 100%;
+    height: 500px;
+    display: none;
+    box-sizing: border-box;
+
+}
+
+.blockInformation:target {
+    display: block;
+
+}
+.blockMasters{
+    display: flex;
+}
+
+.sort_navigation{
+    padding: 10px;
+    margin: 10px;
+}
+.masters_items{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.info_for_guest {
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #e2a2b2;
+
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
