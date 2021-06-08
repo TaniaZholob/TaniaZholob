@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-<c:redirect url="controller?command=goToMainPage"/>
+<c:redirect url="beautySalon"/>
 </body>
 </html>
 

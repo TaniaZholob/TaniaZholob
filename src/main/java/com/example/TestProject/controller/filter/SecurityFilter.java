@@ -1,0 +1,66 @@
+package com.example.TestProject.controller.filter;
+
+//import java.util.logging.Filter;
+
+import com.example.TestProject.constants.Commands;
+import com.example.TestProject.model.Role;
+import com.example.TestProject.model.entity.User;
+import org.apache.log4j.Logger;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SecurityFilter implements Filter {
+    private static final Logger log = Logger.getLogger(SecurityFilter.class);
+    private static final String ATTRIBUTE_USER = "user";
+    private static final String PARAMETER_COMMAND = "command";
+
+    private static final String ROLE_ADMIN = "admin";
+    private static final String ROLE_MASTER = "master";
+
+    private static final List<String> userCommand = new ArrayList<>();
+    private static final List<String> adminCommand = new ArrayList<>();
+    private static final List<String> masterCommand = new ArrayList<>();
+    private static final List<String> commonCommand = new ArrayList<>();
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        userCommand.add(Commands.CLIENT_ACCOUNT_PAGE);
+        userCommand.add(Commands.CLIENT_SELECT_TIME);
+        userCommand.add(Commands.CLIENT_DO_RECORD);
+        userCommand.add(Commands.CLIENT_GIVE_FEEDBACK);
+        userCommand.add(Commands.CLIENT_GO_TO_GIVE_FEEDBACK);
+        userCommand.add(Commands.CLIENT_SELECT_MASTER);
+        userCommand.add(Commands.CLIENT_SELECT_PROCEDURES);
+
+        adminCommand.add(Commands.ADMIN_CHANGE_RECORD_TIME);
+        adminCommand.add(Commands.ADMIN_ALL_RECORDS);
+        adminCommand.add(Commands.ADMIN_GOTO_EDIT_RECORD);
+
+        masterCommand.add(Commands.MASTER_GO_TO_MASTER_TIME_TABLE);
+        masterCommand.add(Commands.MASTER_PERFORM_RECORD);
+        commonCommand.add(Commands.LOG_OUT);
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+
+        HttpServletRequest req =(HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        String commandName = req.getParameter("command");
+        if(commandName!=null){
+            HttpSession session = req.getSession();
+            User user = (User) session.getAttribute("user");
+            Role role = (Role) session.getAttribute("role");
+
+            if (userCommand.contains(commandName)&&(user==null||(!Role.ADMIN.equals(role)&&!Role.MASTER.equals(role)))){
+
+            }
+        }
+    }
+}

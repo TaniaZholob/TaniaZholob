@@ -1,0 +1,47 @@
+<%--===========================================================================
+Header (top area).
+===========================================================================--%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/views/jsp/jspf/derective/taglib.jspf" %>
+
+
+<header class="header">
+    <div class="meContainer">
+        <div class="header_inner">
+            <div class="header_logo">
+                    <a class="h1" href="beautySalon"><h1>${saloon}</h1></a>
+            </div>
+            <nav class="nav">
+
+
+                <c:choose>
+                    <c:when test="${empty user}">
+                        <a class="nav_link" href="login" methods="post">${log_in}</a>
+                    </c:when>
+                    <c:when test="${not empty user}">
+
+                        <a class="nav_link" href="mainPage?command=logOut">${log_out}</a>
+                        <c:choose>
+                            <c:when test="${role.name=='client'}">
+                                <a class="nav_link" href="mainPage?command=goToAccountPage"><fmt:message key="user.acc"/></a>
+                                <a class="nav_link" href="user?command=goToOrder"><fmt:message key="user.do.order"/></a>
+                            </c:when>
+                            <c:when test="${role.name=='admin'}">
+                                <a class="nav_link" href="admin?command=goToAllRecords"><fmt:message key="admin.view.records"/></a>
+                            </c:when>
+                            <c:when test="${role.name=='master'}">
+                                <a class="nav_link" href="master?command=goToMasterTimeTable"><fmt:message key="masterId.view.schedule"/></a>
+                            </c:when>
+
+
+                        </c:choose>
+                    </c:when>
+
+                </c:choose>
+
+                <a class="nav_link" href="mainPage?command=locale&locale=ua" methods="get">${button_ua}</a>
+                <a class="nav_link" href="mainPage?command=locale&locale=en" methods="get">${button_en}</a>
+            </nav>
+        </div>
+    </div>
+</header>

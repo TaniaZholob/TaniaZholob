@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/index.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/jsp/RegisterUser.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/jsp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/jsp/jspf/header.jspf" value="file://$PROJECT_DIR$/src/main/webapp/views/jsp/jspf" />
       </map>
     </option>
   </component>

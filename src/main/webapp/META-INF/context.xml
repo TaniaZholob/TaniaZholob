@@ -39,15 +39,9 @@ Data source and connection pool configuration
               type="javax.sql.DataSource"
               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
               username="root" password="root"
-              serverTimezone="Europe/Kiev"
-              useUnicode="true"
-              useJDBCCompliantTimezoneShift="true"
-              useLegacyDatetimeCode="false"
               driverClassName="com.mysql.cj.jdbc.Driver"
               defaultAutoCommit="false"
-              useSSL="true"
-              verifyServerCertificate="false"
               defaultTransactionIsolation="READ_COMMITTED"
-              url="jdbc:mysql://localhost:3306/java"/>
+              url="jdbc:mysql://localhost:3306/beauty_salon"/>
 
 </Context>

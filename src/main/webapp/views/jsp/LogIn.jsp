@@ -1,26 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: User
-  Date: 17.05.2021
-  Time: 17:00
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ include file="/views/jsp/jspf/derective/taglib.jspf" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>LogIn</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,700;1,100&display=swap"
-          rel="stylesheet">
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <link rel="stylesheet" type="text/css" href="<c:url value='/views/Style/css.css' />">
-</head>
+<c:set var="title" value="Login" />
+<%@ include file="/views/jsp/jspf/head.jspf"%>
+
 <body>
 <div class="conteiner" align="center">
 
-    <form action="controller" method="post">
+    <form action="authentication" method="post">
         <h1 class="h1R" title="Форма аторизації">Вхід</h1>
-        <input type="hidden" name="command" value="register"/>
+        <input type="hidden" name="command" value="authorization"/>
 
         <table style="with: 80%">
             <tr>
@@ -35,10 +26,13 @@
         <input class="myButton" type="submit" value="Увійти"/>
 
     </form>
-    <form action="controller" method="get">
+    <form action="registration" method="get">
         <input type="hidden" name="command" value="GoToRegister"/>
         <input class="myButton" type="submit" value="Зареєструватися"/>
     </form>
+<c:if test="${not empty errorMessage}">
+    <p><fmt:message key="login.wrong.dates"/></p>
+</c:if>
 </div>
 </body>
 </html>
