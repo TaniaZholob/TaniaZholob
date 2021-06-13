@@ -49,9 +49,11 @@ public class GoToAllRecords extends Command {
 
         List<Record> records = service.getRecords(currentPageInt);
         request.setAttribute("all_records", records);
+        //        double rows = service.getNumberOfRecords().doubleValue();
+//        int nOfPages = (int) Math.ceil(rows / 2.0);
 
-        double rows = service.getNumberOfRecords().doubleValue();
-        int nOfPages = (int) Math.ceil(rows / 2.0);
+        int nOfPages = service.getNumberOfPages();
+
         request.setAttribute("noOfPages", nOfPages);
         request.setAttribute("currentPage", currentPage);
         log.debug("Set attribute number of page: " + nOfPages + " and current page: " + currentPage);
