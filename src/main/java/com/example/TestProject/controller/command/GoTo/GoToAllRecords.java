@@ -60,5 +60,6 @@ public class GoToAllRecords extends Command {
 
 
         return Path.PAGE__ALL_RECORDS;
+
     }
 }
