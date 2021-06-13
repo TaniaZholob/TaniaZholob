@@ -8,8 +8,9 @@
 
 <body>
 <div class="conteiner" align="center">
-
+<%--    <%session.setAttribute("previous_request", null);%>--%>
     <form action="authentication" method="post">
+        <form action="authentication" method="post">
         <h1 class="h1R" title="Форма аторизації">Вхід</h1>
         <input type="hidden" name="command" value="authorization"/>
 

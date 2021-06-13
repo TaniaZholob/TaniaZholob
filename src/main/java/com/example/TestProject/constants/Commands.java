@@ -21,5 +21,4 @@ public class Commands {
     public static final String SORT_MASTERS = "sortMasters";
     public static final String GOT_PROCEDURES = "gotProcedures";
 
-
 }

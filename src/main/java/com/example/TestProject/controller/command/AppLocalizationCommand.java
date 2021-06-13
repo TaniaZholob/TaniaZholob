@@ -19,11 +19,24 @@ public class AppLocalizationCommand extends Command {
         log.debug("Command start");
         HttpSession session = request.getSession();
         String locale = request.getParameter(PARAMETER_LOCALE);
-        log.trace("Got parameter of locale: "+locale);
+        log.trace("Got parameter of locale: " + locale);
         String previousRequest = (String) session.getAttribute(ATTRIBUTE_PREVIOUS_REQUEST);
         session.setAttribute(PARAMETER_LOCALE, locale);
-        log.trace("Set new parameter of locale: "+locale);
-        response.sendRedirect(previousRequest);
+        log.trace("Set new parameter of locale: " + locale);
+
+
+        String URIfromHTTPpage = request.getParameter("uri");
+        log.info("Got URI from JSP page: " + URIfromHTTPpage);
+        if (previousRequest != null) {
+//            response.sendRedirect(previousRequest.replaceAll(".*(?=Gradle)", ""));
+            String newAdress= previousRequest.replaceAll(".*war/", "");
+            response.sendRedirect(newAdress);
+//            response.sendRedirect(previousRequest);
+            log.info("Got previous Request: " + previousRequest + " and redirect to "+newAdress );
+        } else {
+            response.sendRedirect(URIfromHTTPpage);
+            log.info("Got URI from JSP: " + URIfromHTTPpage + " and redirect");
+        }
         log.debug("Command end!");
         return null;
     }

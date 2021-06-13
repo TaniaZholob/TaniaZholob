@@ -6,6 +6,7 @@ import com.example.TestProject.model.bean.Record;
 import com.example.TestProject.model.dao.OrderDAO;
 import com.example.TestProject.model.dao.ProcedureDAO;
 import com.example.TestProject.model.dao.TimeSlotDAO;
+import com.example.TestProject.model.entity.Order;
 import com.example.TestProject.model.entity.User;
 
 import java.util.List;
@@ -24,15 +25,17 @@ public class OrderService {
     }
 
     public boolean insertRecord(Long idMaster, String dataTime, User user, String procedure) {
-        TimeSlotDAO timeSlotDAO = new TimeSlotDAO();
-        Long idTimeSlot = timeSlotDAO.insertTimeSlot(idMaster, dataTime);
-        return!new OrderDAO().createNewRecord(user.getId(), new ProcedureDAO().findIdByTitle(procedure), idTimeSlot);
+        return!new OrderDAO().createNewRecord(user.getId(), new ProcedureDAO().findIdByTitle(procedure), idMaster, dataTime);
     }
 
-    public boolean changePaymentStatus(Long idPars, Payment_Status ps) {
+    public boolean changePaymentStatus(Long idPars, Payment_Status ps,User user) {
         OrderDAO orderDAO = new OrderDAO();
-        if(orderDAO.getOrderByID(idPars).getPerformanceStatus().equals(PerformanceStatus.CLOSED)){
+        Order order = orderDAO.getOrderByID(idPars);
+        if(order.getPerformanceStatus().equals(PerformanceStatus.CLOSED)&&order.getPaymentStatus().equals(Payment_Status.CONFIRMED)){
+            System.out.println("Status perform equals CLOSED"+orderDAO.getOrderByID(idPars).getPerformanceStatus());
             ps = Payment_Status.PAID;
+            System.out.println("payment stat");
+            new SenderService().sendingLetter(user);
         }
         return !orderDAO.updatePaymentStatus(idPars, ps);
     }
@@ -62,5 +65,9 @@ public class OrderService {
             orderDAO.updatePaymentStatus(id, Payment_Status.PAID);
         }
         return !orderDAO.changePerformStatus(id);
+    }
+
+    public User getUserOfRecord(Long idPars) {
+        return new OrderDAO().getOrderByID(idPars).getUser();
     }
 }

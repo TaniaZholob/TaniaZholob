@@ -1,63 +1,48 @@
 com/example/TestProject/model/Payment_Status.java
  com.example.TestProject.model.Payment_Status
-com/example/TestProject/controller/command/GiveFeedback.java
- com.example.TestProject.controller.command.GiveFeedback
+com/example/TestProject/model/bean/Record.java
+ com.example.TestProject.model.bean.Record
 com/example/TestProject/constants/Commands.java
  com.example.TestProject.constants.Commands
-com/example/TestProject/controller/command/GoTo/GoToEditRecordPage.java
- com.example.TestProject.controller.command.GoTo.GoToEditRecordPage
-com/example/TestProject/controller/command/GoTo/GoToOrderMasters.java
- com.example.TestProject.controller.command.GoTo.GoToOrderMasters
-com/example/TestProject/controller/services/ProcedureService.java
- com.example.TestProject.controller.services.ProcedureService
-com/example/TestProject/controller/command/GoTo/GoToOrder.java
- com.example.TestProject.controller.command.GoTo.GoToOrder
-com/example/TestProject/controller/command/ChangeRecord.java
- com.example.TestProject.controller.command.ChangeRecord
-com/example/TestProject/constants/Path.java
- com.example.TestProject.constants.Path
-com/example/TestProject/model/entity/User.java
- com.example.TestProject.model.entity.User
-com/example/TestProject/controller/command/AddRecord.java
- com.example.TestProject.controller.command.AddRecord
-com/example/TestProject/controller/services/ProvideServices.java
- com.example.TestProject.controller.services.ProvideServices
-com/example/TestProject/controller/command/Command.java
- com.example.TestProject.controller.command.Command
-com/example/TestProject/model/entity/Procedure.java
- com.example.TestProject.model.entity.Procedure
-com/example/TestProject/model/entity/Review.java
- com.example.TestProject.model.entity.Review
-com/example/TestProject/testtttttttttttttttttttttttttttttttttttttttttttttttttt.java
- com.example.TestProject.testtttttttttttttttttttttttttttttttttttttttttttttttttt
-com/example/TestProject/constants/Fields.java
- com.example.TestProject.constants.Fields
-com/example/TestProject/controller/command/GoTo/GoToMainPage.java
- com.example.TestProject.controller.command.GoTo.GoToMainPage
-com/example/TestProject/controller/services/OrderService.java
- com.example.TestProject.controller.services.OrderService
-com/example/TestProject/controller/services/FeedBackService.java
- com.example.TestProject.controller.services.FeedBackService
-com/example/TestProject/controller/command/SortCommand.java
- com.example.TestProject.controller.command.SortCommand
-com/example/TestProject/controller/command/RegisterCommand.java
- com.example.TestProject.controller.command.RegisterCommand
-com/example/TestProject/controller/services/UserService.java
- com.example.TestProject.controller.services.UserService
+com/example/TestProject/controller/filter/EncodingFilter.java
+ com.example.TestProject.controller.filter.EncodingFilter
 com/example/TestProject/model/PerformanceStatus.java
  com.example.TestProject.model.PerformanceStatus
-com/example/TestProject/model/entity/TimeSlot.java
- com.example.TestProject.model.entity.TimeSlot
-com/example/TestProject/model/dao/MasterDAO.java
- com.example.TestProject.model.dao.MasterDAO
- com.example.TestProject.model.dao.MasterDAO$1
- com.example.TestProject.model.dao.MasterDAO$MasterMapper
+com/example/TestProject/constants/SQLquary.java
+ com.example.TestProject.constants.SQLquary
+com/example/TestProject/constants/Fields.java
+ com.example.TestProject.constants.Fields
+com/example/TestProject/testtttttttttttttttttttttttttttttttttttttttttttttttttt.java
+ com.example.TestProject.testtttttttttttttttttttttttttttttttttttttttttttttttttt
+com/example/TestProject/controller/services/ProcedureService.java
+ com.example.TestProject.controller.services.ProcedureService
+com/example/TestProject/constants/Path.java
+ com.example.TestProject.constants.Path
+com/example/TestProject/model/EntityMapper.java
+ com.example.TestProject.model.EntityMapper
+com/example/TestProject/controller/services/LogInService.java
+ com.example.TestProject.controller.services.LogInService
+com/example/TestProject/model/DBManager.java
+ com.example.TestProject.model.DBManager
+com/example/TestProject/controller/filter/AuthorizationFilter.java
+ com.example.TestProject.controller.filter.AuthorizationFilter
+com/example/TestProject/controller/filter/SecurityFilter.java
+ com.example.TestProject.controller.filter.SecurityFilter
 com/example/TestProject/controller/command/GoTo/GoToAccountPage.java
  com.example.TestProject.controller.command.GoTo.GoToAccountPage
+com/example/TestProject/controller/command/LogInCommand.java
+ com.example.TestProject.controller.command.LogInCommand
 com/example/TestProject/controller/command/GoTo/GotProcedures.java
  com.example.TestProject.controller.command.GoTo.GotProcedures
-com/example/TestProject/controller/command/CommandContainer.java
- com.example.TestProject.controller.command.CommandContainer
+com/example/TestProject/model/entity/TimeSlot.java
+ com.example.TestProject.model.entity.TimeSlot
+com/example/TestProject/controller/services/SenderService.java
+ com.example.TestProject.controller.services.SenderService
+com/example/TestProject/senderImail/Sender.java
+ com.example.TestProject.senderImail.Sender
+ com.example.TestProject.senderImail.Sender$1
+com/example/TestProject/controller/command/GoTo/GoToEditRecordPage.java
+ com.example.TestProject.controller.command.GoTo.GoToEditRecordPage
 com/example/TestProject/controller/command/GoTo/GoToAllRecords.java
  com.example.TestProject.controller.command.GoTo.GoToAllRecords
 com/example/TestProject/model/dao/OrderDAO.java
@@ -69,51 +54,75 @@ com/example/TestProject/model/dao/ReviewDAO.java
  com.example.TestProject.model.dao.ReviewDAO
  com.example.TestProject.model.dao.ReviewDAO$1
  com.example.TestProject.model.dao.ReviewDAO$ReviewMapper
-com/example/TestProject/constants/SQLquary.java
- com.example.TestProject.constants.SQLquary
+com/example/TestProject/controller/command/GoTo/GoToOrderMasters.java
+ com.example.TestProject.controller.command.GoTo.GoToOrderMasters
 com/example/TestProject/model/entity/Order.java
  com.example.TestProject.model.entity.Order
-com/example/TestProject/model/DBManager.java
- com.example.TestProject.model.DBManager
+com/example/TestProject/controller/command/GoTo/GoToOrder.java
+ com.example.TestProject.controller.command.GoTo.GoToOrder
 com/example/TestProject/model/dao/UserDAO.java
  com.example.TestProject.model.dao.UserDAO
  com.example.TestProject.model.dao.UserDAO$1
  com.example.TestProject.model.dao.UserDAO$UserMapper
-com/example/TestProject/controller/filter/SecurityFilter.java
- com.example.TestProject.controller.filter.SecurityFilter
-com/example/TestProject/controller/command/LogInCommand.java
- com.example.TestProject.controller.command.LogInCommand
-com/example/TestProject/controller/command/PerformRecord.java
- com.example.TestProject.controller.command.PerformRecord
+com/example/TestProject/controller/command/ChangeRecord.java
+ com.example.TestProject.controller.command.ChangeRecord
+com/example/TestProject/model/dao/MasterDAO.java
+ com.example.TestProject.model.dao.MasterDAO
+ com.example.TestProject.model.dao.MasterDAO$1
+ com.example.TestProject.model.dao.MasterDAO$MasterMapper
 com/example/TestProject/model/entity/Entity.java
  com.example.TestProject.model.entity.Entity
+com/example/TestProject/controller/command/PerformRecord.java
+ com.example.TestProject.controller.command.PerformRecord
 com/example/TestProject/controller/command/AppLocalizationCommand.java
  com.example.TestProject.controller.command.AppLocalizationCommand
-com/example/TestProject/model/bean/Record.java
- com.example.TestProject.model.bean.Record
+com/example/TestProject/model/entity/User.java
+ com.example.TestProject.model.entity.User
+com/example/TestProject/controller/command/AddRecord.java
+ com.example.TestProject.controller.command.AddRecord
 com/example/TestProject/controller/command/GoTo/GoToFeedbackPage.java
  com.example.TestProject.controller.command.GoTo.GoToFeedbackPage
 com/example/TestProject/model/entity/Master.java
  com.example.TestProject.model.entity.Master
+com/example/TestProject/controller/services/ProvideServices.java
+ com.example.TestProject.controller.services.ProvideServices
+com/example/TestProject/controller/command/Command.java
+ com.example.TestProject.controller.command.Command
+com/example/TestProject/model/entity/Procedure.java
+ com.example.TestProject.model.entity.Procedure
 com/example/TestProject/controller/command/LogOutCommand.java
  com.example.TestProject.controller.command.LogOutCommand
 com/example/TestProject/controller/command/GoTo/GoToMasterTimeTable.java
  com.example.TestProject.controller.command.GoTo.GoToMasterTimeTable
-com/example/TestProject/model/EntityMapper.java
- com.example.TestProject.model.EntityMapper
-com/example/TestProject/controller/Controller.java
- com.example.TestProject.controller.Controller
+com/example/TestProject/model/entity/Review.java
+ com.example.TestProject.model.entity.Review
+com/example/TestProject/controller/validator/ValidatorData.java
+ com.example.TestProject.controller.validator.ValidatorData
+com/example/TestProject/controller/services/OrderService.java
+ com.example.TestProject.controller.services.OrderService
 com/example/TestProject/model/dao/TimeSlotDAO.java
  com.example.TestProject.model.dao.TimeSlotDAO
  com.example.TestProject.model.dao.TimeSlotDAO$1
  com.example.TestProject.model.dao.TimeSlotDAO$TimeSlotMapper
+com/example/TestProject/controller/services/FeedBackService.java
+ com.example.TestProject.controller.services.FeedBackService
 com/example/TestProject/model/dao/ProcedureDAO.java
  com.example.TestProject.model.dao.ProcedureDAO
  com.example.TestProject.model.dao.ProcedureDAO$1
  com.example.TestProject.model.dao.ProcedureDAO$ProcedureMapper
-com/example/TestProject/controller/command/GoTo/GoToOrderTime.java
- com.example.TestProject.controller.command.GoTo.GoToOrderTime
+com/example/TestProject/controller/command/SortCommand.java
+ com.example.TestProject.controller.command.SortCommand
 com/example/TestProject/model/Role.java
  com.example.TestProject.model.Role
-com/example/TestProject/controller/validator/ValidatorData.java
- com.example.TestProject.controller.validator.ValidatorData
+com/example/TestProject/controller/services/UserService.java
+ com.example.TestProject.controller.services.UserService
+com/example/TestProject/controller/command/GoTo/GoToOrderTime.java
+ com.example.TestProject.controller.command.GoTo.GoToOrderTime
+com/example/TestProject/controller/command/RegisterCommand.java
+ com.example.TestProject.controller.command.RegisterCommand
+com/example/TestProject/controller/Controller.java
+ com.example.TestProject.controller.Controller
+com/example/TestProject/controller/command/GiveFeedback.java
+ com.example.TestProject.controller.command.GiveFeedback
+com/example/TestProject/controller/command/CommandContainer.java
+ com.example.TestProject.controller.command.CommandContainer

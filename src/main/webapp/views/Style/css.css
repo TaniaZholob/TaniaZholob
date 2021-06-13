@@ -8,6 +8,11 @@ body {
     font-size: 1rem;
 }
 
+h1{
+    color: white;
+}
+
+
 /*conteiner*/
 .conteiner {
     width: 100%;
@@ -540,3 +545,27 @@ legend {
 }
 
 
+.formProcedure{
+    padding: 30px;
+}
+
+.selectProc{
+    width: 250px;
+    border: none;
+    height: 139px;
+    background-color: #fdbc5e;
+    outline: none !important;
+    margin: 20px 0;
+}
+.btn {
+    line-height: 1;
+
+}
+
+.procedureOption{
+    height: 32px;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid #e4d8d8;
+
+}

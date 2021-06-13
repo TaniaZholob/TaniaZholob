@@ -22,12 +22,8 @@ public class GoToAccountPage extends Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.debug("Command start!");
         Role role = (Role) request.getSession().getAttribute("role");
+        User user = (User) request.getSession().getAttribute("user");
         log.debug("Role of user: " + role);
-        if (role == null || !"client".equals(role.getName())) {
-            log.info("Wrong role of user.");
-            log.trace("Command end!");
-            return Path.PAGE__ERROR_PAGE;
-        }
         OrderService service = new OrderService();
         String id = request.getParameter("changePaymentStatus");
         String status = request.getParameter("status");
@@ -36,12 +32,11 @@ public class GoToAccountPage extends Command {
             log.trace("Got id of user: " + idOfRecord);
             Payment_Status st = Payment_Status.valueOf(status.toUpperCase());
             log.trace("Got id of status: " + st);
-            if (service.changePaymentStatus(idOfRecord, st)) {
+            if (service.changePaymentStatus(idOfRecord, st, user)) {
                 return Path.PAGE__ERROR_PAGE;
             }
         }
 
-        User user = (User) request.getSession().getAttribute("user");
         log.trace("Got user" + user);
         List<Record> records = null;
         if (user != null) {

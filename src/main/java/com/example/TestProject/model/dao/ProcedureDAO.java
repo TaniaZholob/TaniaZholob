@@ -125,8 +125,4 @@ public class ProcedureDAO {
         }
     }
 
-    public static void main(String[] args) {
-        ProcedureDAO p = new ProcedureDAO();
-        System.out.println(p.findIdByTitle("make-up"));
-    }
 }

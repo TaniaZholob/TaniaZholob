@@ -33,7 +33,7 @@
                     <td>${record.dataTime}</td>
                     <td><fmt:message key="masterId.perform.${record.performStatus}"/>
                         <c:if test="${record.performStatus=='active'}">
-                            <form action="masterId">
+                            <form action="master">
                                 <input type="hidden" name="command" value="performRecord"/>
                                 <input type="hidden" name="changePerformStatus" value="${record.idOfRecord}"/>
                                 <input class="myButton" type="submit" value='<fmt:message key="masterId.perform"/>'/>

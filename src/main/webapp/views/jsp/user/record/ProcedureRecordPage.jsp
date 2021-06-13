@@ -7,15 +7,15 @@
 <body>
 <%@ include file="/views/jsp/jspf/header.jspf" %>
 <div class="conteiner" align="center">
-    <form method="post" action="user?command=goToOrderMasters">
-        <p><fmt:message key="menu.procedures"/></p>
+    <form class="formProcedure" method="post" action="user?command=goToOrderMasters">
+        <h1><fmt:message key="menu.procedures"/></h1>
 
-        <select size="5" class="selectpicker" name="procedure" data-style="btn-warning" required>
+        <select class="selectProc" size="5" class="selectpicker" name="procedure" data-style="btn-warning" required>
             <option disabled>Select service</option>
             <c:forEach items="${all_procedures}" var="procedure">
 
                 <div class="feature">
-                    <option value="${procedure.title}">
+                    <option class="procedureOption" value="${procedure.title}">
                         <div class="feature-title">
                             <h2>
                                 <fmt:message key="procedure.${procedure.title}"/></h2>

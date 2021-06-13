@@ -47,7 +47,7 @@ public class MasterDAO {
     /**
      * Returns a master with the given identifier.
      *
-     * @param name Master identifier.
+     * @param name,surname Master identifier.
      * @return Master entity.
      */
     public Master findMaster(String name, String surname) {
@@ -77,12 +77,14 @@ public class MasterDAO {
         }
         return master;
     }
-
-
-
+    /**
+     * Returns a list of master with the given procedure.
+     *
+     * @param procedure title.
+     * @return List of master.
+     */
     public List<Master> getAllMastersByProcedure(String procedure) {
         List<Master> masters = new ArrayList<>();
-        Master master = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         Connection connection = null;
@@ -110,7 +112,6 @@ public class MasterDAO {
 
     public List<Master> getAllMasters() {
         List<Master> masters = new ArrayList<>();
-        Master master = null;
         Statement preparedStatement = null;
         ResultSet resultSet = null;
         Connection connection = null;
@@ -149,14 +150,11 @@ public class MasterDAO {
             if (resultSet.next()) {
                 l = resultSet.getLong("id");
             }
-            resultSet.close();
-            statement.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
             DBManager.getInstance().commitAndClose(connection);
         }
-
         return l;
     }
 
@@ -183,10 +181,4 @@ public class MasterDAO {
     }
 
 
-    /***Must be Deleted**/
-    public static void main(String[] args) {
-        MasterDAO m = new MasterDAO();
-        System.out.println(m.getAllMastersByProcedure("haircut"));
-
-    }
 }

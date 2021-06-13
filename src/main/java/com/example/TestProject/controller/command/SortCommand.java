@@ -23,12 +23,10 @@ public class SortCommand extends Command {
         if (sort == null) {
             sort = "name";
         }
+
         log.trace("Sort by "+ sort);
         Integer page = null;
         List<Master> masters = new MasterDAO().getAllMasters();
-        System.out.println(masters.get(1)+ " my new master");
-        System.out.println(masters.get(2)+ " my new master");
-        System.out.println(masters.get(3)+ " my new master");
         //sorting by name of sort
         switch (sort) {
             case "name":

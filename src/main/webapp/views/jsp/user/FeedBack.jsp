@@ -9,7 +9,7 @@
 
 <div class="meContainer3">
 
-    <form class="formFeedback" action="admin" method="post" oninput="daysoutput.value=dayscount.value">
+    <form class="formFeedback" action="admin" method="post" accept-charset="UTF-8" oninput="daysoutput.value=dayscount.value">
         <input type="hidden" name="command" value="giveFeedback"/>
         <input type="hidden" name="masterNameSurname" value="${masterNameSurname}"/>
         <input type="hidden" name="id" value="${id}"/>

@@ -9,24 +9,11 @@ import java.util.Objects;
  */
 
 public class User extends Entity {
-    private static final long serialVersionUID = -6889036256149495388L;
-    /**
-     * Must be deleted
-     **/
-   /* public User(String login, String password, String firstName, String lastName, String localeName, int roleId) {
-        this.login = login;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.localeName = localeName;
-        this.roleId = roleId;
-    }*/
 
     private String login;
     private String password;
     private String firstName;
     private String lastName;
-//    private String localeName;
     private int roleId;
 
     public String getLogin() {
@@ -61,13 +48,6 @@ public class User extends Entity {
         this.lastName = lastName;
     }
 
-//    public String getLocaleName() {
-//        return localeName;
-//    }
-//
-//    public void setLocaleName(String localeName) {
-//        this.localeName = localeName;
-//    }
 
     public int getRoleId() {
         return roleId;

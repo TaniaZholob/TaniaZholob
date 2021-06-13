@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author D.Kolesnikov
  *
  */
-public abstract class Command implements Serializable {
-    private static final long serialVersionUID = 8879403039606311780L;
+public abstract class Command  {//interface
 
     /**
      * Execution method for command.
@@ -23,8 +22,8 @@ public abstract class Command implements Serializable {
     public abstract String execute(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException;
 
-    @Override
-    public final String toString() {
-        return getClass().getSimpleName();
-    }
+//    @Override
+//    public final String toString() {
+//        return getClass().getSimpleName();
+//    }
 }

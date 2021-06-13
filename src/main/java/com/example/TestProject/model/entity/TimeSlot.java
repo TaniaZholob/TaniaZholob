@@ -9,7 +9,6 @@ import java.util.Objects;
  *
  */
 public class TimeSlot extends Entity{
-//    List<Times> times;
     private Master master;
 
     public Master getMaster() {
@@ -20,24 +19,23 @@ public class TimeSlot extends Entity{
         this.master = master;
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        TimeSlot timeSlot = (TimeSlot) o;
-//        return times.equals(timeSlot.times) && master.equals(timeSlot.master);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(times, master);
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "TimeSlot{" +
-//                "times=" + times +
-//                ", master=" + master +
-//                '}';
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TimeSlot timeSlot = (TimeSlot) o;
+        return master.equals(timeSlot.master);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(master);
+    }
+
+    @Override
+    public String toString() {
+        return "TimeSlot{" +
+                "master=" + master +
+                '}';
+    }
 }

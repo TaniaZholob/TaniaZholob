@@ -13,11 +13,6 @@ public class Order extends Entity {
     private PerformanceStatus performanceStatus;
     private TimeSlot timeSlot;
 
-    public static void main(String[] args) {
-        Order o = new Order();
-        o.setPaymentStatus(2);
-        System.out.println(o.getPaymentStatus());
-    }
 
     public PerformanceStatus getPerformanceStatus() {
         return performanceStatus;
@@ -35,10 +30,6 @@ public class Order extends Entity {
     public void setPaymentStatus(int paymentStatusid) {
         paymentStatus = Payment_Status.values()[paymentStatusid];
 
-    }
-
-    public int getBill() {
-        return bill;
     }
 
     public void setBill(int bill) {

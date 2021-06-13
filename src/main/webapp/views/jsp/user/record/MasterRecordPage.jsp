@@ -7,19 +7,19 @@
 <body>
 <%@ include file="/views/jsp/jspf/header.jspf" %>
 <div class="conteiner" align="center">
-    <form method="post" action="user?command=goToOrderTime">
-        <p><fmt:message key="menu.masters"/></p>
-        <select size="5" class="selectpicker" name="masterId" data-style="btn-warning" required>
+    <form class="formProcedure"  method="post" action="user?command=goToOrderTime">
+        <h1><fmt:message key="menu.masters"/></h1>
+        <select class="selectProc" size="5" class="selectpicker" name="master" data-style="btn-warning" required>
             <option disabled>Select service</option>
-            <c:forEach items="${all_masters_pr}" var="masterId">
+            <c:forEach items="${all_masters_pr}" var="master">
                 <div class="feature">
-                    <option value="${masterId.id}">
+                    <option class="procedureOption" value="${master.id}">
                         <div class="feature-title">
-                            <h2>${masterId.name}</h2>
+                            <h2>${master.name}</h2>
                         </div>
 
                         <div class="feature-title">
-                            <p>${masterId.surname}</p>
+                            <p>${master.surname}</p>
                         </div>
                     </option>
                 </div>

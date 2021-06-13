@@ -9,6 +9,7 @@
 <%@ include file="/views/jsp/jspf/header.jspf" %>
 
 <div class="meContainer">
+    <%session.setAttribute("previous_request", null);%>
 
     <div class="intro">
         <div class="meContainer">

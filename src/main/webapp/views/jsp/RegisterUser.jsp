@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%@ include file="/views/jsp/jspf/derective/taglib.jspf" %>
 <!DOCTYPE html>
 <html>
 <c:set var="title" value="Register" />
@@ -30,10 +30,10 @@
                 <td><fmt:message key="register.password"/></td>
                 <td><input type="password" name="password" required/></td>
             </tr>
-            <tr>
-                <td><fmt:message key="register.password.repeat"/></td>
-                <td><input type="password" name="password" required/></td>
-            </tr>
+<%--            <tr>--%>
+<%--                <td><fmt:message key="register.password.repeat"/></td>--%>
+<%--                <td><input type="password" name="password" required/></td>--%>
+<%--            </tr>--%>
         </table>
         <input class="myButton" type="submit" value='<fmt:message key="register.do"/>'/>
     </form>

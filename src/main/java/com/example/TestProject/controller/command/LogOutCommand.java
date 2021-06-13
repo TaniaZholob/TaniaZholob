@@ -20,7 +20,7 @@ public class LogOutCommand extends Command {
 
 
         log.debug("Command end!");
-        response.sendRedirect("mainPage?command=goToMainPage");
+        response.sendRedirect("beautySalon");
         return null;
     }
 }

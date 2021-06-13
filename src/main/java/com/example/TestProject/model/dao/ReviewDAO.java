@@ -41,6 +41,7 @@ public class ReviewDAO {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            DBManager.getInstance().rollbackAndClose(connection);
             return false;
         } finally {
             DBManager.getInstance().commitAndClose(connection);
@@ -98,15 +99,6 @@ public class ReviewDAO {
         }
     }
 
-
-    public static void main(String[] args) {
-        ReviewDAO reviewDAO = new ReviewDAO();
-        Master m = new Master();
-        m.setId(3L);
-        User u = new User();
-        u.setId(23L);
-        System.out.println(reviewDAO.addNewReview(m, u, "Чудова робота майстра", 4));
-    }
 
 
 }

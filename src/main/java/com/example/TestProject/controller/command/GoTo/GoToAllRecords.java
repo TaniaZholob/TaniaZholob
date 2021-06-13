@@ -6,6 +6,7 @@ import com.example.TestProject.controller.services.OrderService;
 import com.example.TestProject.model.Payment_Status;
 import com.example.TestProject.model.Role;
 import com.example.TestProject.model.bean.Record;
+import com.example.TestProject.model.entity.User;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
@@ -21,15 +22,7 @@ public class GoToAllRecords extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.trace("Command start!");
-        Role role = (Role) request.getSession().getAttribute("role");
-        log.debug("Role of user: " + role);
         int currentPageInt;
-        if (role == null || !"admin".equals(role.getName())) {
-            log.info("Wrong role of user.");
-            log.trace("Command end!");
-            return Path.PAGE__ERROR_PAGE;
-        }
-
         OrderService service = new OrderService();
 
         String id = request.getParameter("changePaymentStatus");
@@ -40,7 +33,8 @@ public class GoToAllRecords extends Command {
             log.info("Change of payment status by id: " + id);
             log.trace("Got param of paymentStatus: " + status);
             Long idPars = Long.parseLong(id);
-            if (service.changePaymentStatus(idPars, status)) {
+            User user = service.getUserOfRecord(idPars);
+            if (service.changePaymentStatus(idPars, status, user)) {
                 return Path.PAGE__ERROR_PAGE;
             }
         }

@@ -1,6 +1,7 @@
 package com.example.TestProject.controller.command;
 
 import com.example.TestProject.constants.Path;
+import com.example.TestProject.model.Role;
 import com.example.TestProject.model.entity.User;
 import com.example.TestProject.controller.validator.ValidatorData;
 import com.example.TestProject.controller.services.ProvideServices;
@@ -24,8 +25,8 @@ public class RegisterCommand extends Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.debug("Command starts");
-        String errorMessage;
-        String forward = Path.PAGE__REGISTER;
+//        String errorMessage;
+//        String forward = Path.PAGE__REGISTER;
 
         String email = request.getParameter("login");
         String firstName = request.getParameter("firstName");
@@ -43,13 +44,17 @@ public class RegisterCommand extends Command {
             ProvideServices provideServices = ProvideServices.getInstance();
             UserService userService = provideServices.getUserService();
             userService.registration(user);
-            log.info("Add new user");
-            return Path.PAGE__USER;
+            log.info("Add new user: "+user);
+            request.getSession().setAttribute("user", user);
+            log.info("Set session attribute: "+Role.getRole(user));
+            request.getSession().setAttribute("role", Role.CLIENT);
+            response.sendRedirect("beautySalon");
+            return null;
         }
 
 
 
-        return Path.PAGE__MAIN;
+        return Path.PAGE__ERROR_PAGE;
 
     }
 }

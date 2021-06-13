@@ -3,6 +3,7 @@ package com.example.TestProject.controller.filter;
 //import java.util.logging.Filter;
 
 import com.example.TestProject.constants.Commands;
+import com.example.TestProject.constants.Path;
 import com.example.TestProject.model.Role;
 import com.example.TestProject.model.entity.User;
 import org.apache.log4j.Logger;
@@ -20,8 +21,6 @@ public class SecurityFilter implements Filter {
     private static final String ATTRIBUTE_USER = "user";
     private static final String PARAMETER_COMMAND = "command";
 
-    private static final String ROLE_ADMIN = "admin";
-    private static final String ROLE_MASTER = "master";
 
     private static final List<String> userCommand = new ArrayList<>();
     private static final List<String> adminCommand = new ArrayList<>();
@@ -30,6 +29,7 @@ public class SecurityFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        log.info("Run init.");
         userCommand.add(Commands.CLIENT_ACCOUNT_PAGE);
         userCommand.add(Commands.CLIENT_SELECT_TIME);
         userCommand.add(Commands.CLIENT_DO_RECORD);
@@ -50,17 +50,32 @@ public class SecurityFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        HttpServletRequest req =(HttpServletRequest) request;
+        log.trace("DoFilter start!");
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        String commandName = req.getParameter("command");
-        if(commandName!=null){
+        String commandName = req.getParameter(PARAMETER_COMMAND);
+        if (commandName != null) {
             HttpSession session = req.getSession();
-            User user = (User) session.getAttribute("user");
+            User user = (User) session.getAttribute(ATTRIBUTE_USER);
             Role role = (Role) session.getAttribute("role");
 
-            if (userCommand.contains(commandName)&&(user==null||(!Role.ADMIN.equals(role)&&!Role.MASTER.equals(role)))){
-
+            if ((userCommand.contains(commandName) && (user == null || !Role.CLIENT.equals(role)))
+                    || (adminCommand.contains(commandName)&&(user==null||(!Role.ADMIN.equals(role))))
+                    ||(masterCommand.contains(commandName)&&(user==null||!Role.MASTER.equals(role)))
+                    ||(commandName.equals(Commands.CLIENT_AUTHORIZATION)&&(user!=null))) {
+                log.info("User: \"" + user
+                        + "\" tried to get or change private resources \"" + commandName + "\"");
+//                resp.sendRedirect("/error");
+                request.setAttribute("errorMessage", "You don`t have permission for this!");
+                request.getRequestDispatcher(Path.PAGE__ERROR_PAGE)
+                        .forward(request, response);
+            }else {
+                chain.doFilter(request,response);
+                log.trace("DoFilter end!");
             }
+        }else {
+
+            chain.doFilter(request,response);
         }
     }
 }

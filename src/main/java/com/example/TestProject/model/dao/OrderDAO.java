@@ -276,6 +276,52 @@ public class OrderDAO {
     }
 
 
+    public boolean createNewRecord(Long userId, Long procedureId,Long masterId, String dataTime) {
+        Connection connection = null;
+        PreparedStatement psForRecord;
+        PreparedStatement psTimeSlot;
+        ResultSet resultSet = null;
+        Long id = null;
+
+        try {
+//            connection = DBManager.getInstance().getConnectionInner();
+            connection = DBManager.getInstance().getConnection();
+            psTimeSlot = connection.prepareStatement(SQLquary.SQL__INSERT_TIME_SLOT, Statement.RETURN_GENERATED_KEYS);
+            psForRecord = connection.prepareStatement(SQLquary.SQL__INSERT_Record);
+            connection.setAutoCommit(false);
+
+            int k = 0;
+            psTimeSlot.setString(++k, dataTime);
+            psTimeSlot.setLong(++k, masterId);
+            psTimeSlot.executeUpdate();
+            resultSet =psTimeSlot.getGeneratedKeys();
+            if (resultSet.next()) {
+                id = resultSet.getLong(1);
+            }
+
+            int t = 0;
+            psForRecord.setLong(++t, userId);
+            psForRecord.setLong(++t, procedureId);
+            psForRecord.setLong(++t, id);
+
+            psForRecord.executeUpdate();
+            connection.commit();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            DBManager.getInstance().rollbackAndClose(connection);
+            return false;
+        } finally {
+            DBManager.getInstance().commitAndClose(connection);
+        }
+        return true;
+    }
+
+
+
     /**
      * Extracts order from the result set row.
      */
@@ -300,37 +346,4 @@ public class OrderDAO {
     }
 
 
-    public boolean createNewRecord(Long userId, Long procedureId, Long timeSlotId) {
-        Connection connection = null;
-        PreparedStatement preparedStatement;
-        ResultSet resultSet = null;
-        try {
-//            connection = DBManager.getInstance().getConnectionInner();
-            connection = DBManager.getInstance().getConnection();
-            preparedStatement = connection.prepareStatement(SQLquary.SQL__INSERT_Record);
-            int k = 0;
-            preparedStatement.setLong(++k, userId);
-            preparedStatement.setLong(++k, procedureId);
-            preparedStatement.setLong(++k, timeSlotId);
-
-            preparedStatement.executeUpdate();
-            if (resultSet != null) {
-                resultSet.close();
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return false;
-        } finally {
-            DBManager.getInstance().commitAndClose(connection);
-        }
-        return true;
-    }
-
-    public static void main(String[] args) {
-        OrderDAO o = new OrderDAO();
-//        User u = new User();
-//        u.setId(2L);
-
-        System.out.println(o.getOrderByID(7L));
-    }
 }

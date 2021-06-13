@@ -13,16 +13,23 @@
             <div class="blockMasters">
                 <div class="sort_navigation">
                     <div class="sort">
-                        <h2>${sort}</h2>
+                        <h2><fmt:message key="filter.procedures"/></h2>
                         <form action="controller" method="get">
-                            <input type="hidden" name="command" value="sortMasters"/>
-                            <label class="containerSort">${name}
-                                <input type="radio" name="sort" value="name">
-                                <%--                                <input type="radio" checked="checked" name="sort" value="name">--%>
+                            <input type="hidden" name="command" value="gotProcedures"/>
+                            <label class="containerSort"><400
+                                <input type="radio" name="filter" value="a">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="containerSort">${rating}
-                                <input type="radio" name="sort" value="rating">
+                            <label class="containerSort">400-600
+                                <input type="radio" name="filter" value="b">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="containerSort">>600
+                                <input type="radio" name="filter" value="c">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="containerSort"><fmt:message key="procedure.all"/>
+                                <input type="radio" name="filter" value="d">
                                 <span class="checkmark"></span>
                             </label>
                             <input type="submit">
@@ -35,7 +42,7 @@
 
                             <div class="featureNameSurname">
                                 <div class="feature-title">
-                                    <h2>${procedureThis.title}</h2>
+                                    <h2><fmt:message key="procedure.${procedureThis.title}"/></h2>
                                 </div>
                                 <div class="feature-title">
                                     <p>${procedureThis.price}</p>

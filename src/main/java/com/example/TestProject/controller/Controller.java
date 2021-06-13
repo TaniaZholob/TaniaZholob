@@ -25,12 +25,14 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setCharacterEncoding("UTF-8");
         process(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+//        System.out.println("Charter encoding: " +request.getCharacterEncoding());
+//        request.setCharacterEncoding("UTF-8");
         process(request, response);
     }
 
@@ -66,17 +68,24 @@ public class Controller extends HttpServlet {
         // if the forward address is not null go to the address
         if (forward != null) {
             RequestDispatcher disp = request.getRequestDispatcher(forward);
-            disp.forward(request, response);//redirect????????
+            disp.forward(request, response);
         }
 
         Optional<String> queryString = Optional.ofNullable(request.getQueryString());
 
         System.out.println(queryString + " query String in controller");
 
-        queryString.ifPresent(value -> {
-            String previousRequest = "controller?" + value;
+//        queryString.ifPresent(value -> {
+//            String previousRequest = "controller?" + value;
+//            session.setAttribute("previous_request", previousRequest.replaceAll("&message.+?=.+?(?=(&|$))", ""));
+//        });
+
+        if(queryString.isPresent()){
+            String previousRequest = "controller?" + queryString.get();
             session.setAttribute("previous_request", previousRequest.replaceAll("&message.+?=.+?(?=(&|$))", ""));
-        });
+        }else {
+            session.setAttribute("previous_request", null);
+        }
 
     }
 

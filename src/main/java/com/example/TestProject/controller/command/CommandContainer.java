@@ -15,7 +15,7 @@ public class CommandContainer {
     static {
         commands.put(Commands.CLIENT_REGISTER, new RegisterCommand());
         commands.put(Commands.LOCALE, new AppLocalizationCommand());
-        commands.put(Commands.MAIN_PAGE, new GoToMainPage());
+//        commands.put(Commands.MAIN_PAGE, new GoToMainPage());
         commands.put(Commands.CLIENT_AUTHORIZATION, new LogInCommand());
         commands.put(Commands.LOG_OUT, new LogOutCommand());
         commands.put(Commands.CLIENT_SELECT_PROCEDURES, new GoToOrder());
@@ -32,7 +32,6 @@ public class CommandContainer {
         commands.put(Commands.CLIENT_GIVE_FEEDBACK, new GiveFeedback());
         commands.put(Commands.SORT_MASTERS, new SortCommand());
         commands.put(Commands.GOT_PROCEDURES, new GotProcedures());
-
 
     }
 

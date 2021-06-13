@@ -1,51 +1,37 @@
 package com.example.TestProject;
 
-import com.example.TestProject.constants.Path;
+
+import com.example.TestProject.model.PerformanceStatus;
 import com.example.TestProject.model.Role;
 import com.example.TestProject.model.entity.User;
-import jdk.internal.joptsimple.internal.Strings;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class testtttttttttttttttttttttttttttttttttttttttttttttttttt {
     public static void main(String[] args) {
-
-//        java.util.Date date = new java.util.Date();
-//        LocalDateTime l = LocalDateTime.now();
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MM dd HH mm");
-//
-//        String formatDateTime = l.format(formatter);
-//        System.out.println(formatDateTime);
-//        System.out.println(l);
-
-//        Role role = Role.ADMIN;
-//        System.out.println("admin".equals(role.getName()));
-//        int nOfPages = (int)Math.ceil((double)10 / 2.0);
-//        System.out.println(nOfPages);
+//        IntegerMath plus = (a,b)->a+b;
+//        IntegerMath minus = (a,b)->a-b;
+//        IntegerMath devision = (a,b)->a/b;
+//        System.out.println(operateBinary(8,2,plus));
+//        System.out.println(operateBinary(8,2,minus));
+//        System.out.println(operateBinary(8,2,devision));
 
 
-//        Optional<String> userOptional = Optional.ofNullable(null);
-//        System.out.println(userOptional.isPresent());
-//        LocalDate localDate = LocalDate.now();
-//        LocalDate localDate1  =LocalDate.of(2016, 06, 5);
-//        System.out.println(localDate.isBefore(localDate1));
+//        List<String> str = Arrays.asList("a1", "a2", "b1", "c2", "c1");
+//        str.stream().filter(x->x.startsWith("c")).sorted().map(String::toUpperCase).forEach(System.out::println);
 
-//        System.out.println("jsghvhg yykhbkj /*ygkyugbkuygbkuygbk*/ yug kuy gu gu");
-
-        User user = null;
-        Role role = Role.CLIENT;
-//        Role r = (Role) "client";
-//        System.out.println(role.equals(r));
-
-
+        System.out.println("Привет и как ти");
     }
 
 
 
-
-
+//    interface IntegerMath{
+//        int operation(int a, int b);
+//    }
+//
+//    static int operateBinary(int a, int b, IntegerMath op){
+//        return op.operation(a,b);
+//    }
 }
