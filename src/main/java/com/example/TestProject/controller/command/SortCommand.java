@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 
-public class SortCommand extends Command {
+public class SortCommand implements Command {
     private static final Logger log = Logger.getLogger(SortCommand.class);
     private static String MASTER = "all_masters";
 

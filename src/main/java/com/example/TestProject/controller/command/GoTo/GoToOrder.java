@@ -14,17 +14,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class GoToOrder extends Command {
+public class GoToOrder implements Command {
     private static final Logger log = Logger.getLogger(GoToOrder.class);
     private static String PROCEDURE = "all_procedures";
+    private ProcedureService procedureService = new ProcedureService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.debug("Command start!");
-        List<Procedure> procedures = new ProcedureService().getProcedures();
+
+        List<Procedure> procedures = procedureService.getProcedures();
+
         HttpSession session = request.getSession();
         session.setAttribute(PROCEDURE, procedures);
         log.trace("Set request attribute: " + procedures);
+
         log.debug("Command end!");
         return Path.PAGE__ORDER;
     }

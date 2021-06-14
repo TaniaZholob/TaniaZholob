@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class GoToFeedbackPage extends Command {
+public class GoToFeedbackPage implements Command {
     private static final Logger log = Logger.getLogger(GoToFeedbackPage.class);
 
     @Override

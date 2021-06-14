@@ -10,7 +10,7 @@ import javax.servlet.http.*;
 
 import java.io.IOException;
 
-public class AddRecord extends Command {
+public class AddRecord implements Command {
     private static final Logger log = Logger.getLogger(AddRecord.class);
 
     @Override

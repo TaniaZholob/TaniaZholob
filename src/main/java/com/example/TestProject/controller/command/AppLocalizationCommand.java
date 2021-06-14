@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AppLocalizationCommand extends Command {
+public class AppLocalizationCommand implements Command {
     private static final Logger log = Logger.getLogger(AppLocalizationCommand.class);
     private static final String PARAMETER_LOCALE = "locale";
 

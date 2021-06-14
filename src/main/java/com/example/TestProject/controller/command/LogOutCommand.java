@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class LogOutCommand extends Command {
+public class LogOutCommand implements Command {
     private static final Logger log = Logger.getLogger(LogOutCommand.class);
 
     @Override

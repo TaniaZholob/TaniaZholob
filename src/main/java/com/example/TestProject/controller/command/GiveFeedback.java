@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class GiveFeedback extends Command {
+public class GiveFeedback implements Command {
     private static final Logger log = Logger.getLogger(GiveFeedback.class);
     private FeedBackService service = new FeedBackService();
 

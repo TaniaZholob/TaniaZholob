@@ -13,9 +13,6 @@ import java.util.List;
 
 public class OrderService {
 
-//    public Long getNumberOfRecords() {
-//        return new OrderDAO().findNumberOfRecords();
-//    }
 
 
     public int getNumberOfPages() {

@@ -15,25 +15,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
-public class GoToAllRecords extends Command {
+public class GoToAllRecords implements Command {
     private static final Logger log = Logger.getLogger(GoToAllRecords.class);
+    private OrderService service = new OrderService();
+    private int currentPageInt;
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.trace("Command start!");
-        int currentPageInt;
-        OrderService service = new OrderService();
 
-        String id = request.getParameter("changePaymentStatus");
+        Optional<String> id = Optional.ofNullable(request.getParameter("changePaymentStatus"));
         log.trace("Got param of id: ");
         String ps = request.getParameter("status");
-        if (id != null) {
+
+        if (id.isPresent()) {
             Payment_Status status = Payment_Status.valueOf(ps.toUpperCase());
             log.info("Change of payment status by id: " + id);
             log.trace("Got param of paymentStatus: " + status);
-            Long idPars = Long.parseLong(id);
+            Long idPars = Long.parseLong(id.get());
             User user = service.getUserOfRecord(idPars);
+
             if (service.changePaymentStatus(idPars, status, user)) {
                 return Path.PAGE__ERROR_PAGE;
             }
@@ -49,8 +52,6 @@ public class GoToAllRecords extends Command {
 
         List<Record> records = service.getRecords(currentPageInt);
         request.setAttribute("all_records", records);
-        //        double rows = service.getNumberOfRecords().doubleValue();
-//        int nOfPages = (int) Math.ceil(rows / 2.0);
 
         int nOfPages = service.getNumberOfPages();
 

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
-public class LogInCommand extends Command {
+public class LogInCommand implements Command {
     private static final Logger log = Logger.getLogger(LogInCommand.class);
     private  LogInService logInService = new LogInService();
     @Override

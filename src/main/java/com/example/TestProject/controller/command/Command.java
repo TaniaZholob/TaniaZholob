@@ -7,19 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Main interface for the Command pattern implementation.
- *
- * @author D.Kolesnikov
- *
- */
-public abstract class Command  {//interface
 
-    /**
-     * Execution method for command.
-     * @return Address to go once the command is executed.
-     */
-    public abstract String execute(HttpServletRequest request, HttpServletResponse response)
+public interface  Command  {//interface
+
+
+     String execute(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException;
 
 //    @Override

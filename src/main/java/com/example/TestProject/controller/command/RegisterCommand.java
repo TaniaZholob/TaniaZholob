@@ -18,7 +18,7 @@ import java.io.IOException;
  * @author T.Zholob
  */
 
-public class RegisterCommand extends Command {
+public class RegisterCommand implements Command {
 
     private static final Logger log = Logger.getLogger(RegisterCommand.class);
 

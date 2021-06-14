@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class GotProcedures extends Command {
+public class GotProcedures implements Command {
     private static final Logger log = Logger.getLogger(GotProcedures.class);
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
