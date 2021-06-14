@@ -12,7 +12,7 @@
 
 
         <div class="title">
-            <h1>Всі записи і їх статуси, пагінація)))</h1>
+            <h1><fmt:message key="all.records.information"/></h1>
         </div>
         <div class="tablePagination">
             <table class="table table-striped table-bordered table-sm">

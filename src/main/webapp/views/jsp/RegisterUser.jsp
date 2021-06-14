@@ -2,7 +2,7 @@
 <%@ include file="/views/jsp/jspf/derective/taglib.jspf" %>
 <!DOCTYPE html>
 <html>
-<c:set var="title" value="Register" />
+<c:set var="title" value="Register"/>
 <%@ include file="/views/jsp/jspf/head.jspf" %>
 
 <body>
@@ -30,13 +30,14 @@
                 <td><fmt:message key="register.password"/></td>
                 <td><input type="password" name="password" required/></td>
             </tr>
-<%--            <tr>--%>
-<%--                <td><fmt:message key="register.password.repeat"/></td>--%>
-<%--                <td><input type="password" name="password" required/></td>--%>
-<%--            </tr>--%>
+
         </table>
         <input class="myButton" type="submit" value='<fmt:message key="register.do"/>'/>
     </form>
+
+    <c:if test="${not empty errorMessage}">
+        <p><fmt:message key="register.wrong.dates"/></p>
+    </c:if>
 </div>
 </body>
 </html>

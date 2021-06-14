@@ -3,7 +3,6 @@ package com.example.TestProject.controller.command;
 import com.example.TestProject.constants.Path;
 import com.example.TestProject.controller.services.LogInService;
 import com.example.TestProject.model.Role;
-import com.example.TestProject.model.dao.UserDAO;
 import com.example.TestProject.model.entity.User;
 import org.apache.log4j.Logger;
 
@@ -31,7 +30,7 @@ public class LogInCommand implements Command {
 
 
         Optional<User> user = logInService.logIn(email, password);
-        if (!user.isPresent()) {
+        if (user.isEmpty()) {
             errorMessage = "User not found,check your email or password!";
             request.setAttribute("errorMessage", errorMessage);
             log.error("errorMessage --> " + errorMessage);

@@ -28,10 +28,8 @@ public class AppLocalizationCommand implements Command {
         String URIfromHTTPpage = request.getParameter("uri");
         log.info("Got URI from JSP page: " + URIfromHTTPpage);
         if (previousRequest != null) {
-//            response.sendRedirect(previousRequest.replaceAll(".*(?=Gradle)", ""));
             String newAdress= previousRequest.replaceAll(".*war/", "");
             response.sendRedirect(newAdress);
-//            response.sendRedirect(previousRequest);
             log.info("Got previous Request: " + previousRequest + " and redirect to "+newAdress );
         } else {
             response.sendRedirect(URIfromHTTPpage);

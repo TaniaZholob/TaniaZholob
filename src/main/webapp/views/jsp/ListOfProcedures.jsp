@@ -32,7 +32,7 @@
                                 <input type="radio" name="filter" value="d">
                                 <span class="checkmark"></span>
                             </label>
-                            <input type="submit">
+                            <input class="myButton" type="submit" value='<fmt:message key="filter"/>'/>
                         </form>
                     </div>
                 </div>

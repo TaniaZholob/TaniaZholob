@@ -9,9 +9,9 @@
 <div class="meContainer3">
     <div>
         <h1>Email: ${user.login}</h1>
-        <h1>Name and Surname: ${user.firstName} ${user.lastName}</h1>
+        <h1><fmt:message key="user.name.surname"/>: ${user.firstName} ${user.lastName}</h1>
     </div>
-    <h1>Your records</h1>
+    <h1><fmt:message key="master.records"/></h1>
     <div class="tablePagination">
         <table class="table table-striped table-bordered table-sm">
             <tr>

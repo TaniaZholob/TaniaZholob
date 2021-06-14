@@ -9,6 +9,7 @@
 <%@ include file="/views/jsp/jspf/header.jspf" %>
 <div class="conteiner" align="center">
     <form class="formProcedure" method="post" action="user?command=recordEnd">
+
         <%
             LocalDate localDate = LocalDate.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -16,7 +17,7 @@
             String formattedString = localDate.format(formatter);
             String formattedString2 = localDate2.format(formatter);
         %>
-        <h1><fmt:message key="menu.procedures"/></h1>
+        <h1><fmt:message key="menu.time"/></h1>
         <label>
             <input type="date" name="data" value="<%=formattedString%>" min="<%=formattedString%>"
                    max="<%=formattedString2%>"/>
@@ -37,34 +38,8 @@
         <input class="myButton" type="submit">
     </form>
     <c:if test="${not empty wrongData}">
-        <h1> Виберіть іншу дату</h1>
+        <h1><fmt:message key="other.data"/></h1>
     </c:if>
 </div>
 </body>
-
-<form>
-    <h1><fmt:message key="menu.procedures"/></h1>
-    <label>
-        <input type="date" name="data" value="<%=formattedString%>" min="<%=formattedString%>"
-               max="<%=formattedString2%>"/>
-        <input type="time" name="time1" list="time1" max="17:00" min="8:00"></p>
-        <datalist id="time1">
-            <option value="08:00">
-            <option value="9:00">
-            <option value="10:00">
-            <option value="11:00">
-            <option value="10:00">
-            <option value="13:00">
-            <option value="14:00">
-            <option value="15:00">
-            <option value="16:00">
-            <option value="17:00">
-        </datalist>
-    </label>
-    <input class="myButton" type="submit">
-</form>
-
-
-
-
 </html>

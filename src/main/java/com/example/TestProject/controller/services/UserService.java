@@ -5,8 +5,8 @@ import com.example.TestProject.model.entity.User;
 
 public class UserService {
 
-    public void registration(User user) {
+    public boolean registration(User user) {
         UserDAO userDAO = new UserDAO();
-            userDAO.registerUser(user);
+        return !userDAO.registerUser(user);
     }
 }

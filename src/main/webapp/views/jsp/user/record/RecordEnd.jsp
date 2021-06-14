@@ -6,6 +6,8 @@
 <body>
 <%@ include file="/views/jsp/jspf/header.jspf" %>
 
-<h1>Success Record</h1>
+<div class="meContainer3">
+    <h1>Success Record</h1>
+</div>
 </body>
 </html>

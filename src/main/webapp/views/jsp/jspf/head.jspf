@@ -12,9 +12,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 
-    <c:if test="${not empty sessionScope.locale}">
-        <fmt:setLocale value="${sessionScope.locale}"/>
-    </c:if>
+    <c:choose>
+        <c:when test="${not empty sessionScope.locale}">
+            <fmt:setLocale value="${sessionScope.locale}"/>
+        </c:when>
+        <c:when test="${empty sessionScope.locale}">
+            <fmt:setLocale value="ua"/>
+        </c:when>
+    </c:choose>
+
+
+
 
 
     <fmt:setBundle basename="app"/>

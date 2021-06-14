@@ -28,9 +28,11 @@ public class GiveFeedback implements Command {
         log.trace("User " + user);
 
         if (service.addRating(rating, text, master, user)) {
+            log.trace("Command end! Error in DB!");
             return Path.PAGE__ERROR_PAGE;
         }
 
+        log.trace("Command end! Send redirect.");
         response.sendRedirect("beautySalon");
         return null;
     }

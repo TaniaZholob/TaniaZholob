@@ -38,7 +38,6 @@ Header (top area).
                     </c:when>
 
                 </c:choose>
-<%--                <c:set var="URI" value='<%request.getRequestURI();%>'/> --%>
                 <a class="nav_link" href="mainPage?command=locale&locale=ua&uri=<%=request.getRequestURI()%>" methods="get">${button_ua}</a>
                 <a class="nav_link" href="mainPage?command=locale&locale=en&uri=<%=request.getRequestURI()%>" methods="get">${button_en}</a>
             </nav>

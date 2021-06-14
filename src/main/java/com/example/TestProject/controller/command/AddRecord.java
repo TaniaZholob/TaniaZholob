@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class AddRecord implements Command {
     private static final Logger log = Logger.getLogger(AddRecord.class);
+    private OrderService service = new OrderService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -27,13 +28,15 @@ public class AddRecord implements Command {
 
         String procedure = (String) request.getSession().getAttribute("name_of_procedure");
         log.trace("Procedure: " + procedure);
-        OrderService service = new OrderService();
+
 
         if (service.insertRecord(idMaster, dataTime, user, procedure)) {
             request.setAttribute("wrongData", "wrongData");
+            log.trace("Command end! Error in DB");
             return Path.PAGE__ERROR_PAGE;
         }
 
+        log.trace("Command end!");
         return Path.PAGE__RECORD_END;
     }
 }

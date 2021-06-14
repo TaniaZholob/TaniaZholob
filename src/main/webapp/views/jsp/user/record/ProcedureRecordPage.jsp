@@ -11,7 +11,7 @@
         <h1><fmt:message key="menu.procedures"/></h1>
 
         <select class="selectProc" size="5" class="selectpicker" name="procedure" data-style="btn-warning" required>
-            <option disabled>Select service</option>
+            <option disabled><fmt:message key="menu.procedures"/></option>
             <c:forEach items="${all_procedures}" var="procedure">
 
                 <div class="feature">

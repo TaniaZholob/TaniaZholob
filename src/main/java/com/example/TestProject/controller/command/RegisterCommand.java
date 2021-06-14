@@ -25,8 +25,7 @@ public class RegisterCommand implements Command {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         log.debug("Command starts");
-//        String errorMessage;
-//        String forward = Path.PAGE__REGISTER;
+
 
         String email = request.getParameter("login");
         String firstName = request.getParameter("firstName");
@@ -40,21 +39,25 @@ public class RegisterCommand implements Command {
         user.setLastName(lastName);
         user.setPassword(password);
 
-        if(ValidatorData.registrationValidation(user)){
+        if (ValidatorData.registrationValidation(user)) {
             ProvideServices provideServices = ProvideServices.getInstance();
             UserService userService = provideServices.getUserService();
-            userService.registration(user);
-            log.info("Add new user: "+user);
+            if (userService.registration(user)) {
+                request.setAttribute("errorMessage", "wrong data");
+                log.debug("Command end!");
+                return Path.PAGE__REGISTER;
+            }
+            log.info("Add new user: " + user);
             request.getSession().setAttribute("user", user);
-            log.info("Set session attribute: "+Role.getRole(user));
+            log.info("Set session attribute: " + Role.CLIENT);
             request.getSession().setAttribute("role", Role.CLIENT);
+            log.debug("Command end! Registration success");
             response.sendRedirect("beautySalon");
             return null;
         }
+        request.setAttribute("errorMessage", "wrong data");
 
-
-
-        return Path.PAGE__ERROR_PAGE;
+        return Path.PAGE__REGISTER;
 
     }
 }

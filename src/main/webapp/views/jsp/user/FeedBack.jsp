@@ -38,7 +38,7 @@
             </div>
             <div class="half-width">
                 <label class="feedBackLable" ><fmt:message key="feedback.evaluation"/></label>
-                0 <input class="feedBackInput" type="range" min="0" max="10" step="1" name="dayscount" value="10"> 10
+                <input class="feedBackInput" type="range" min="0" max="10" step="1" name="dayscount" value="10"> 10
             </div>
             <div class="half-width output-area">
                 <output class="feedBackOutPut" name="daysoutput">10</output>

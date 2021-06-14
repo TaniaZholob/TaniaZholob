@@ -80,7 +80,7 @@ public class UserDAO {
 
     }
 
-    public void registerUser(User user) {
+    public boolean registerUser(User user) {
         Connection connection = null;
         PreparedStatement preparedStatement;
         ResultSet resultSet = null;
@@ -101,9 +101,11 @@ public class UserDAO {
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            return false;
         } finally {
             DBManager.getInstance().commitAndClose(connection);
         }
+        return true;
     }
 
 

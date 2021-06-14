@@ -1,6 +1,7 @@
 package com.example.TestProject.controller.command;
 
 import com.example.TestProject.constants.Path;
+import com.example.TestProject.controller.services.MasterService;
 import com.example.TestProject.model.dao.MasterDAO;
 import com.example.TestProject.model.entity.Master;
 import org.apache.log4j.Logger;
@@ -15,6 +16,7 @@ import java.util.List;
 public class SortCommand implements Command {
     private static final Logger log = Logger.getLogger(SortCommand.class);
     private static String MASTER = "all_masters";
+    private MasterService service = new MasterService();
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -24,19 +26,10 @@ public class SortCommand implements Command {
             sort = "name";
         }
 
-        log.trace("Sort by "+ sort);
-        Integer page = null;
-        List<Master> masters = new MasterDAO().getAllMasters();
-        //sorting by name of sort
-        switch (sort) {
-            case "name":
-                masters.sort(Comparator.comparing(Master::getName));
-                break;
-            case "rating":
-                masters.sort(Comparator.comparing(Master::getRating).reversed());
-                break;
-        }
+        log.trace("Sort by " + sort);
+        List<Master> masters = service.sort(sort);
         request.setAttribute(MASTER, masters);
+        log.debug("Command end!");
         return Path.PAGE__MASTERS;
     }
 }

@@ -25,15 +25,13 @@ public class Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
         process(request, response);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        System.out.println("Charter encoding: " +request.getCharacterEncoding());
-//        request.setCharacterEncoding("UTF-8");
+
         process(request, response);
     }
 
